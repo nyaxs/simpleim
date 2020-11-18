@@ -15,4 +15,7 @@ public class ChatRoom {
     private List<User> userList;
     // 主播 Id, anchorman:主播
     private Long anchormanId;
+    // 直播间状态。0 关闭，1 开启
+    private Integer status;
+    private Integer headCount;
 }

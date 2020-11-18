@@ -23,9 +23,6 @@ public class MessageController {
     @PostMapping("/sendMessage")
     public int sendMessage(@RequestBody Message message){
 
-        //log.info("============ message value"+message.toString());
-        //Timestamp t1 = Timestamp.valueOf(message.getTime().toLocalDateTime());
-        //message.setTime(t1);
         log.info("============ message value"+message.toString());
 
         /*
@@ -34,7 +31,6 @@ public class MessageController {
          */
         ChatRoom room = roomMap.get(message.getRoomId());
 
-        //if(!roomMap.containsKey(message.getRoomId())){
         if(room==null){
            return 0;
         }

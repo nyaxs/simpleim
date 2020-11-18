@@ -33,7 +33,8 @@ public class ChatRoomController {
             return 0;
         }
 
-        ChatRoom room = roomService.getRoomById(user.getId());
+        ChatRoom room = roomService.getRoomById(user.getRoomId());
+        roomService.enterRoom(room.getId());
         room.getUserList().add(user);
 
         return 1;
@@ -45,6 +46,7 @@ public class ChatRoomController {
 
         ChatRoom room = roomService.getRoomById(user.getRoomId());
         room.getUserList().remove(user);
+        roomService.quitRoom(room.getId());
         return 1;
 
     }
