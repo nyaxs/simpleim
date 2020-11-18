@@ -2,6 +2,7 @@ package com.nya.simpleim.controller;
 
 import com.nya.simpleim.pojo.ChatRoom;
 import com.nya.simpleim.pojo.Message;
+import com.nya.simpleim.pojo.MessageDTO;
 import com.nya.simpleim.repository.RoomMessageSession;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,10 +25,11 @@ public class PublishController {
 
     // 获取指定时间之后的消息
     @GetMapping("/publishSinceTime")
-    public List<Message> publish(@RequestBody Message message){
-        ChatRoom room = RoomMessageSession.roomMap.get(message.getRoomId());
+    public List<Message> publish(@RequestBody MessageDTO messageDTO){
+        Timestamp ts = new Timestamp(messageDTO.getTime());
+        ChatRoom room = RoomMessageSession.roomMap.get(messageDTO.getRoomId());
         return room.getMessageList().stream().
-                filter(message1 -> message1.getTime().after(message.getTime())).collect(Collectors.toList());
+                filter(message1 -> message1.getTime().after(ts)).collect(Collectors.toList());
     }
 
 
