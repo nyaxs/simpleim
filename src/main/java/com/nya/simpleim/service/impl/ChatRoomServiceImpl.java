@@ -16,10 +16,9 @@ import static com.nya.simpleim.repository.RoomMessageSession.roomMap;
 public class ChatRoomServiceImpl implements ChatRoomService {
 
     @Override
-    public ChatRoom createRoom(User user) {
+    public ChatRoom createRoom(User user,Long roomId) {
         ChatRoom room = new ChatRoom();
-        //直播间 Id 与用户 id 相同
-        room.setId(user.getId());
+        room.setId(roomId);
         room.setAnchormanId(user.getId());
         List<User> userList = new ArrayList<>();
         userList.add(user);

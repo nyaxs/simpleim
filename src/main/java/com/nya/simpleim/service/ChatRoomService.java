@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ChatRoomService {
 
-    public ChatRoom createRoom(User user);
+    public ChatRoom createRoom(User user,Long roomId);
 
     public int openRoom(Long roomId);
 

@@ -25,6 +25,23 @@ public class ChatRoomController {
         this.roomService = roomService;
     }
 
+    @PostMapping("/createRoom")
+    public int createChatRoom(@RequestBody User user,Long roomId){
+        roomService.createRoom(user,roomId);
+        return 1;
+    }
+
+    @GetMapping("/openRoom")
+    public int openRoom(Long roomId){
+        return roomService.openRoom(roomId);
+    }
+
+    @GetMapping("/closeRoom")
+    public int closeRoom(Long roomId){
+       return roomService.closeRoom(roomId);
+
+    }
+
     @PostMapping("/enterRoom")
     public int enterRoom(@RequestBody User user) {
         //获取登录状态，已登录则为 1，未登录为 0
