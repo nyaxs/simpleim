@@ -29,7 +29,6 @@ class SimpleimApplicationTests {
         room1.setAnchormanId((long)101);
         room1.setId((long)1);
 
-        roomMap.put((long)1,room1);
 
         Timestamp t1 = Timestamp.valueOf(LocalDateTime.now());
         System.out.println(t1);
@@ -50,6 +49,8 @@ class SimpleimApplicationTests {
 
         room1.setUserList(Arrays.asList(user1));
         room1.setMessageList(messageList);
+
+        roomMap.put((long)1,room1);
 
         List <Message> messageList2 = room1.getMessageList().stream().
                 filter(message -> message.getTime().after(t1)).collect(Collectors.toList());
