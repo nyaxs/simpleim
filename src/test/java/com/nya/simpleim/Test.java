@@ -30,7 +30,8 @@ public class Test {
     }
     @org.junit.jupiter.api.Test
     void test2(){
-        Long t1 = LocalDateTime.now().toInstant(ZoneOffset.UTC).toEpochMilli();
+        System.out.println(LocalDateTime.now());
+        Long t1 = LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli();
         Timestamp time = new Timestamp(t1);
         System.out.println("==============="+t1);
         System.out.println("==============="+time);

@@ -25,7 +25,7 @@ public class MessageController {
 
     @PostMapping("/sendMessage")
     public int sendMessage(@RequestBody MessageDTO messageDTO){
-        Long id = LocalDateTime.now().toInstant(ZoneOffset.UTC).toEpochMilli();
+        Long id = LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli();
         Timestamp time = new Timestamp(messageDTO.getTime());
         Message message1 = new Message(id,messageDTO.getUserId(),messageDTO.getRoomId(),messageDTO.getContent(),time);
 
